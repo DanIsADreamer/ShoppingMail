@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.danisadreamer.ShoppingCarDemo.mapper.EStoreMapper">
+    <resultMap id="product" type="com.danisadreamer.ShoppingCarDemo.been.Product">
+        <id column="pid" property="pid" />
+        <result column="pname" property="pname" />
+        <result column="estoreprice" property="estoreprice" />
+        <result column="markprice" property="markprice" />
+        <result column="pnum" property="pnum" />
+        <result column="cid" property="cid" />
+        <result column="imgurl" property="imgurl" />
+        <result column="desc" property="desc" />
+        <result column="if_hot" property="ifHot" />
+    </resultMap>
+
+    <select id="quarryAllHotProduct" resultMap="product">
+        select pid,pname,estoreprice,markprice,pnum,cid,imgurl,`desc`,if_hot
+        from product
+        where if_hot = 1
+    </select>
+
+
+
+</mapper>
